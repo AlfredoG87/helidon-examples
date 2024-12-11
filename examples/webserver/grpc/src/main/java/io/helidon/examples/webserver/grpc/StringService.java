@@ -62,7 +62,8 @@ class StringService implements GrpcService {
 
     private void split(StringMessage request, StreamObserver<StringMessage> observer) {
         String[] parts = request.getText().split(" ");
-        stream(observer, Stream.of(parts).map(this::response));
+        //stream(observer, Stream.of(parts).map(this::response));
+        stream(observer, Stream.generate(() -> this.response(parts[0])));
     }
 
     private StreamObserver<StringMessage> join(StreamObserver<StringMessage> observer) {

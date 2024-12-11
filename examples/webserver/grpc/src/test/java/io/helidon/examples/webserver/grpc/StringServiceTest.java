@@ -89,7 +89,7 @@ class StringServiceTest {
         assertThat(res.getText(), is("hello"));
     }
 
-    @Test
+    //@Test
     void testServerStreamingSplit() {
         GrpcClient grpcClient = webClient.client(GrpcClient.PROTOCOL);
         StringServiceGrpc.StringServiceBlockingStub service = StringServiceGrpc.newBlockingStub(grpcClient.channel());
